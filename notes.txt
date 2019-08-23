@@ -1,4 +1,4 @@
-This tutorial takes you through the process to create a simple router for a react app using simple hard coded links (non-dynamic links).
+This tutorial takes you through the process to create a simple router for a react app using simple hard coded links (non-dynamic links). Video course can be found at: https://www.youtube.com/watch?v=Law7wfdg_ls
 
 Step 1: Create a React app
     $ npx create-react-app <name>

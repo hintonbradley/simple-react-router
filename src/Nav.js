@@ -15,6 +15,7 @@ function Nav() {
             <Link to='/contact'>
                 <li>Contact</li>
             </Link>
+            <li><a href="https://www.youtube.com/watch?v=Law7wfdg_ls">Original tutorial</a></li>
         </ul>
     </div>
   );
