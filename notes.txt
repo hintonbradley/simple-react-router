@@ -1,0 +1,135 @@
+This tutorial takes you through the process to create a simple router for a react app using simple hard coded links (non-dynamic links).
+
+Step 1: Create a React app
+    $ npx create-react-app <name>
+Step 2: Install React Router library
+    $ npm install react-router-dom
+Step 3: Run the development server
+    $ npm start
+Step 4: Open http://localhost:3000/ in browser to confirm it's working
+Step 5: Create a new page (About.js) in your project
+    $ cd src/ && touch About.js && cd ..
+    Code for About.js page: 
+        import React from 'react';
+        import './About.css';
+
+        function About() {
+        return (
+            <div className="About">
+                <h1>This is the About page</h1>
+            </div>
+        );
+        }
+
+        export default About;
+Step 6: Create another page the same way as in step 5 with different name (Contact.js)
+Step 7: Create a navigation component
+    $ cd src/ && touch Nav.js && cd ..
+    Code for Nav.js:
+        import React from 'react';
+        import './App.css';
+
+        function Nav() {
+        return (
+            <div className="Nav">
+                <h3>Logo</h3>
+                <ul className="nav-links">
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        );
+        }
+
+export default Nav;
+
+        export default Nav;
+Step 8: Import all files into the App.js file:
+    import React from 'react';
+    import './App.css';
+    import Nav from './Nav';
+    import About from './About';
+    import Contact from './Contact';
+
+    function App() {
+    return (
+        <div className="App">
+        <Nav />
+        <About />
+        <Contact />
+        </div>
+    );
+    }
+
+    export default App;
+Step 9: Add styling in App.css file:
+    .App {
+        text-align: center;
+    }
+
+    .Nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 10vh;
+        background: lightblue;
+        color: white;
+    }
+
+    .nav-links {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+    }
+Step 10: Import React Router Dom (specifically BrowswerRouter and rename to Router, and also add Switch and Route) into your project in the App.js file.
+    ...
+    import Contact from './Contact';
+    import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
+    function App() {
+    ...
+Step 11: Wrap all components you want to have Browser ability in the <Router> tags in your App.js file.
+    ...
+    <Router>
+      <div className="App">
+        <Nav />
+        <About />
+        <Contact />
+      </div>
+    </Router>
+Step 12: Use Route to render out a component based on the url in the App.js file. For each path, we're going to add a <Route> tag and add attributes 'path' and 'component' to specify which component goes with which path, like in the example below:
+    ...
+    <Nav />
+    <Route path="/about" component={About} />
+    <About />
+    ...
+Step 13: Create a home page for the route "/".
+    import React from 'react';
+
+    function Home() {
+    return (
+        <div className="Home">
+            <h1>This is the Contact page</h1>
+        </div>
+    );
+    }
+
+    export default Home;
+Step 14: Add a route for Home component in App.js file. (Use exact to match the path exactly)
+    ...
+    <Nav />
+    <Route path="/" exact component={Home} />
+    <Route path="/about" component={About} />
+    ...
+Step 15: Add a Switch tag to wrap all the Route components so that if the Router finds the first matching route, it will be prevented from displaying any other components after.
+    ...
+    <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+    </Switch>
+Step 16: To add link functionality in the Nav component, we need to import Link from React in the Nav.js file.
+    import {Link} from 'react-router-dom';
+Step 17: In the Nav.js file, wrap the elements you want to turn into links with the <Link> tag.
