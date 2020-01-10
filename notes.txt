@@ -1,5 +1,11 @@
 This tutorial takes you through the process to create a simple router for a react app using simple hard coded links (non-dynamic links). Video course can be found at: https://www.youtube.com/watch?v=Law7wfdg_ls
 
+**************************************************
+** For a more condensed better version, look in **
+** the test-async-thunk repo in github profile. **
+**************************************************
+
+
 Step 1: Create a React app
     $ npx create-react-app <name>
 Step 2: Install React Router library
@@ -43,7 +49,6 @@ Step 7: Create a navigation component
 
 export default Nav;
 
-        export default Nav;
 Step 8: Import all files into the App.js file:
     import React from 'react';
     import './App.css';
@@ -133,3 +138,8 @@ Step 15: Add a Switch tag to wrap all the Route components so that if the Router
 Step 16: To add link functionality in the Nav component, we need to import Link from React in the Nav.js file.
     import {Link} from 'react-router-dom';
 Step 17: In the Nav.js file, wrap the elements you want to turn into links with the <Link> tag.
+    ...
+    <Link to='/contact'>
+        <li>Contact</li>
+    </Link>
+    ...
